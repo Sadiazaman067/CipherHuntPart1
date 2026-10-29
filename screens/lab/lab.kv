@@ -2,5 +2,67 @@
 #:import utils kivy.utils
 
 <LabScreen>:
-    Label:
-        text: "This is the Lab screen"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+
+        Label:
+            text: "[b]The Lab[/b]"
+            markup: True
+            font_size: '30sp'
+            size_hint: (1, None)
+            height: '50dp'
+
+        Label:
+            text: "Create a new clue. Each clue you add earns 10 points."
+            font_size: '16sp'
+            text_size: self.width, None
+            halign: 'center'
+            size_hint: (1, None)
+            height: '50dp'
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 30
+            spacing: 15
+
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex("#1f3d6c")
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]
+
+            Label:
+                text: "Riddle"
+                font_size: '22sp'
+                color: utils.get_color_from_hex("#ffffff")
+                size_hint: (1, None)
+                height: '30dp'
+
+            TextInput:
+                id: clue_input
+                hint_text: "Write your riddle here"
+                multiline: True
+                font_size: '18sp'
+
+            Label:
+                text: "Key"
+                font_size: '22sp'
+                color: utils.get_color_from_hex("#ffffff")
+                size_hint: (1, None)
+                height: '30dp'
+
+            TextInput:
+                id: key_input
+                hint_text: "The answer"
+                multiline: False
+                font_size: '18sp'
+                size_hint: (1, None)
+                height: '50dp'
+
+            AppButton:
+                id: submit_button
+                text: "Submit Clue"
