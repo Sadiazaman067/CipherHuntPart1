@@ -4,65 +4,74 @@
 <LabScreen>:
     BoxLayout:
         orientation: 'vertical'
-        padding: 40
-        spacing: 20
-
-        Label:
-            text: "[b]The Lab[/b]"
-            markup: True
-            font_size: '30sp'
-            size_hint: (1, None)
-            height: '50dp'
-
-        Label:
-            text: "Create a new clue. Each clue you add earns 10 points."
-            font_size: '16sp'
-            text_size: self.width, None
-            halign: 'center'
-            size_hint: (1, None)
-            height: '50dp'
+        padding: ['12dp', '48dp']
 
         BoxLayout:
             orientation: 'vertical'
-            padding: 30
-            spacing: 15
+            padding: [0, 0, 0, '18dp']
+            spacing: '12dp'
 
             canvas.before:
                 Color:
-                    rgba: utils.get_color_from_hex("#1f3d6c")
+                    rgba: utils.get_color_from_hex("#445378")
                 RoundedRectangle:
                     size: self.size
                     pos: self.pos
                     radius: [20]
 
             Label:
-                text: "Riddle"
-                font_size: '22sp'
+                text: "Create New Clue"
+                font_size: '24sp'
                 color: utils.get_color_from_hex("#ffffff")
                 size_hint: (1, None)
-                height: '30dp'
+                height: '44dp'
 
-            TextInput:
-                id: clue_input
-                hint_text: "Write your riddle here"
-                multiline: True
-                font_size: '18sp'
-
-            Label:
-                text: "Key"
-                font_size: '22sp'
-                color: utils.get_color_from_hex("#ffffff")
+            Widget:
                 size_hint: (1, None)
-                height: '30dp'
+                height: '4dp'
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#b9b9b9")
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
 
-            TextInput:
-                id: key_input
-                hint_text: "The answer"
-                multiline: False
-                font_size: '18sp'
-                size_hint: (1, None)
-                height: '50dp'
+            BoxLayout:
+                orientation: 'vertical'
+                padding: ['8dp', 0]
+                spacing: '12dp'
 
-            AppButton:
-                id: submit_button
-                text: "Submit Clue"
+                TextInput:
+                    id: clue_input
+                    hint_text: "What is your clue?"
+                    multiline: True
+                    font_size: '18sp'
+                    background_normal: ''
+                    background_active: ''
+                    background_color: utils.get_color_from_hex("#d9d9d9")
+                    foreground_color: utils.get_color_from_hex("#1e1e1e")
+                    hint_text_color: utils.get_color_from_hex("#1e1e1e")
+                    padding: ['10dp', '10dp']
+
+                TextInput:
+                    id: key_input
+                    hint_text: "Enter Key Here..."
+                    multiline: False
+                    halign: 'center'
+                    font_size: '18sp'
+                    size_hint: (1, None)
+                    height: '34dp'
+                    background_normal: ''
+                    background_active: ''
+                    background_color: utils.get_color_from_hex("#d9d9d9")
+                    foreground_color: utils.get_color_from_hex("#1e1e1e")
+                    hint_text_color: utils.get_color_from_hex("#1e1e1e")
+                    padding: ['10dp', (self.height - self.line_height) / 2]
+
+                AppButton:
+                    id: submit_button
+                    text: "Create"
+                    font_size: '22sp'
+                    size_hint: (0.6, None)
+                    height: '50dp'
+                    pos_hint: {'center_x': 0.5}
