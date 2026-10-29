@@ -2,5 +2,76 @@
 #:import utils kivy.utils
 
 <LabScreen>:
-    Label:
-        text: "This is the Lab screen"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: ['12dp', '48dp']
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [0, 0, 0, '18dp']
+            spacing: '12dp'
+
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex("#445378")
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]
+
+            Label:
+                text: "Create New Clue"
+                font_size: '24sp'
+                color: utils.get_color_from_hex("#ffffff")
+                size_hint: (1, None)
+                height: '44dp'
+
+            Widget:
+                size_hint: (1, None)
+                height: '4dp'
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#b9b9b9")
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: ['8dp', 0]
+                spacing: '12dp'
+
+                TextInput:
+                    id: clue_input
+                    hint_text: "What is your clue?"
+                    multiline: True
+                    font_size: '18sp'
+                    background_normal: ''
+                    background_active: ''
+                    background_color: utils.get_color_from_hex("#d9d9d9")
+                    foreground_color: utils.get_color_from_hex("#1e1e1e")
+                    hint_text_color: utils.get_color_from_hex("#1e1e1e")
+                    padding: ['10dp', '10dp']
+
+                TextInput:
+                    id: key_input
+                    hint_text: "Enter Key Here..."
+                    multiline: False
+                    halign: 'center'
+                    font_size: '18sp'
+                    size_hint: (1, None)
+                    height: '34dp'
+                    background_normal: ''
+                    background_active: ''
+                    background_color: utils.get_color_from_hex("#d9d9d9")
+                    foreground_color: utils.get_color_from_hex("#1e1e1e")
+                    hint_text_color: utils.get_color_from_hex("#1e1e1e")
+                    padding: ['10dp', (self.height - self.line_height) / 2]
+
+                AppButton:
+                    id: submit_button
+                    text: "Create"
+                    font_size: '22sp'
+                    size_hint: (0.6, None)
+                    height: '50dp'
+                    pos_hint: {'center_x': 0.5}
